@@ -1,4 +1,4 @@
-# 需求分析
+#### 需求分析
     
     调试
     系统版本
@@ -27,7 +27,55 @@
             driver： joypad ketborad
    - [  ] language
    - [  ] common组件      
-      
+        - [  ] audio         
+            
+                convert float to int16_t
+                Dsp_filters:fft 滤波
+                Resampler sinc nearest 两种重采样driver
+        - [  ] compat
+                
+                filename pattern matching(fnmatch)、命令行长选项解析(getopt)、
+                ip address(ifaddrs)、strcasecmp(strcasestr)、
+                strlcpy/strlcat(strl）
+        - [  ] crt
+                
+                memcpy、memset
+        - [  ] dynamic
+                
+                load dylib        
+        - [  ] encodings      
+        
+                crc32、utf
+        - [  ] features
+                
+                PC指针、时间、CPU核心数、CPU指令集
+        - [  ] file
+        
+                file wrapper、 在其上提供访问及判断压缩、配置等文件的一系列方法
+        - [  ] formats
+        - [  ] gfx
+        - [  ] glsm
+        - [  ] glsym
+        - [  ] hash
+        - [  ] include 
+        - [  ] libco
+        - [  ] lists
+        - [  ] memmap
+        - [  ] net
+        - [  ] queues
+        - [  ] rthreads
+        - [  ] samples
+        - [  ] streams
+                
+                options on streams: 
+        - [  ] string
+                
+                options on string
+        - [  ] utlis
+        `       `
+                hash funtion: crc32、djb2、md5、sha1
+        - [  ] vulkan        
+                
    - [  ] 数据库
    
    - [  ] memory
@@ -59,8 +107,8 @@
       - [  ] wifi
     
     
-# 源码结构
+#### 源码结构
 
-# 功能实现
+#### 功能实现
 
-# 系统架构
+#### 系统架构
