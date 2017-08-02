@@ -14,6 +14,8 @@
     * [ ] driver
         > signal handler  
         > 当前运行环境(指令集.etc)
+        
+- [ ] gfx
 - [ ] input
         > driver： joypad ketborad
 - [ ] language
@@ -44,18 +46,44 @@
     
             file wrapper、 在其上提供访问及判断压缩、配置等文件的一系列方法
     * [ ] formats
+    
+            file format wrappers: bmp、jpeg、json、png、tga、wav、xml
+            file format specific option: 文件(头)读写
     * [ ] gfx
     * [ ] glsm
     * [ ] glsym
     * [ ] hash
+    
+            hash implement
     * [ ] include
     * [ ] libco
+    
+            cooperative multithreading
     * [ ] lists
+    
+            list wrapper for: dir、file、string
     * [ ] memmap
+    
+            内存管理、页对齐、保护
     * [ ] net
+    
+            platform specific socket libraries.、
+            http connect funtions、
+            parse href、
+            network interface info、
+            nat traversal、port forward
+            socket funtion whit blocking or non-block
     * [ ] queues
+    
+            queues: fifo、
+                    message(with priority、duration before vanishes)、
+                    queues(with lock etc.)
     * [ ] rthreads
+    
+            pthread wrapper(with condition variable、mutex)
     * [ ] samples
+    
+            测试样例
     * [ ] streams
     
             options on streams:
