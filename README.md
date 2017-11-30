@@ -7,7 +7,8 @@
 ----fix issues with ndk-build  
 ----native activity	  
 #####TDD   
-----NES core  
+
+----NES core   
 ----the simple in gSample  
 ----audio
 	
