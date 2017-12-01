@@ -45,9 +45,10 @@ void load(const char* fileName)
     sprintf(fn,"/sdcard/test.nes");
     
     FILE* f = fopen(fn, "rb");
-    int size = ftell(f);
+    
     
     fseek(f, 0, SEEK_END);
+    int size = ftell(f);
     fseek(f, 0, SEEK_SET);
 
     u8* rom = new u8[size];
