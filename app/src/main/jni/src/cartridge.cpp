@@ -50,15 +50,20 @@ void load(const char* fileName)
     fseek(f, 0, SEEK_END);
     int size = ftell(f);
     fseek(f, 0, SEEK_SET);
-
+    
     u8* rom = new u8[size];
     fread(rom, size, 1, f);
     fclose(f);
-
+    // for visualise the rom content 
+    /*for(int i = 0;i<16;++i){
+        LOGD("%x",rom[i]);
+    }*/
+    
     int mapperNum = (rom[7] & 0xF0) | (rom[6] >> 4);
     if (loaded()) delete mapper;
     switch (mapperNum)
     {
+        
         case 0:  mapper = new Mapper0(rom); break;
         case 1:  mapper = new Mapper1(rom); break;
         case 2:  mapper = new Mapper2(rom); break;

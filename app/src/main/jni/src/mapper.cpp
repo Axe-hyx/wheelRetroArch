@@ -44,7 +44,7 @@ u8 Mapper::read(u16 addr)
 
 u8 Mapper::chr_read(u16 addr)
 {
-    LOGD("chr_read addr: %hu",addr);
+//    LOGD("chr_read addr: %hu",addr);
     return chr[chrMap[addr / 0x400] + (addr % 0x400)];
 }
 
