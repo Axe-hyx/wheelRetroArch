@@ -1,11 +1,11 @@
 #include <csignal>
-#include <../SDL2_IMG/SDL_image.h>
-#include <../SDL2_TTF/SDL_ttf.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
 #include "Sound_Queue.h"
 #include "apu.hpp"
 #include "cartridge.hpp"
 #include "cpu.hpp"
-//#include "menu.hpp"
+//#include "menu"
 #include "gui.hpp"
 #include "config.hpp"
 
@@ -76,10 +76,10 @@ void init()
     keys = SDL_GetKeyboardState(0);
 
     // Initial background:
-    /*SDL_Surface* backSurface  = IMG_Load("res/init.png");
+    SDL_Surface* backSurface  = IMG_Load("res/init.png");
     background = SDL_CreateTextureFromSurface(renderer, backSurface);
     SDL_SetTextureColorMod(background, 60, 60, 60);
-    SDL_FreeSurface(backSurface);*/
+    SDL_FreeSurface(backSurface);
 
     // Menus:
     /*mainMenu = new Menu;
@@ -99,11 +99,11 @@ void init()
     videoMenu->add(new Entry("Size 1x", []{ set_size(1); }));
     videoMenu->add(new Entry("Size 2x", []{ set_size(2); }));
     videoMenu->add(new Entry("Size 3x", []{ set_size(3); }));
-    videoMenu->add(new Entry("Size 4x", []{ set_size(4); }));*/
+    videoMenu->add(new Entry("Size 4x", []{ set_size(4); }));
 
     for (int i = 0; i < 2; i++)
     {
-        /*keyboardMenu[i] = new Menu;
+        keyboardMenu[i] = new Menu;
         keyboardMenu[i]->add(new Entry("<", []{ menu = settingsMenu; }));
         if (joystick[i] != nullptr)
             keyboardMenu[i]->add(new Entry("Joystick >", [=]{ menu = joystickMenu[i]; useJoystick[i] = true; }));
@@ -129,10 +129,10 @@ void init()
             joystickMenu[i]->add(new ControlEntry("B",      &BTN_B[i]));
             joystickMenu[i]->add(new ControlEntry("Start",  &BTN_START[i]));
             joystickMenu[i]->add(new ControlEntry("Select", &BTN_SELECT[i]));
-        }*/
+        }
     }
 
-    /*fileMenu = new FileMenu;
+    fileMenu = new FileMenu;
 
     menu = mainMenu;*/
 }

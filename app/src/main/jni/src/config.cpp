@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <SimpleIni.h>
+#include <dirent.h>
 #include "config.hpp"
 #include "gui.hpp"
 
@@ -35,13 +36,47 @@ bool useJoystick[] = { false, false };
 /* Ensure config directory exists */
 const char* get_config_path(char * buf, int buflen)
 {
-    /* Bail on the complex stuff if we don't need it */
     if (!USE_CONFIG_DIR)
     {
-       return CONFIG_FALLBACK;
+        return CONFIG_FALLBACK;
     }
-
-    /* First, get the home directory */
+    
+    char *root = "/sdcard";
+    char homepath[CONFIG_PATH_MAX];
+    char path[CONFIG_PATH_MAX];
+    snprintf(homepath, sizeof(homepath), "%s/.config", root);
+    DIR *dir =opendir(homepath);
+    if(dir){
+        ;
+    }else{
+        std::string cmd = "mkdir -p ";
+        cmd += homepath;
+        system(cmd.c_str());
+        
+    }closedir(dir);
+    
+    snprintf(path, sizeof(path),"%s/RENES", homepath);
+    
+    dir =opendir(path);
+    if(dir){
+        ;
+    }else{
+        std::string cmd = "mkdir -p ";
+        cmd += path;
+        system(cmd.c_str());
+    }closedir(dir);
+    
+    snprintf(buf, buflen, "%s/settings", path);
+    
+    return buf;
+    
+    
+    /*//Bail on the complex stuff if we don't need it
+    if (!USE_CONFIG_DIR)
+    {
+        return CONFIG_FALLBACK;
+    }
+    //First, get the home directory
     char homepath[CONFIG_PATH_MAX];
     char path[CONFIG_PATH_MAX];
     char * home = getenv("HOME");
@@ -50,7 +85,7 @@ const char* get_config_path(char * buf, int buflen)
 
     snprintf(homepath, sizeof(homepath), "%s/.config", home);
 
-    /* Then, .config as a folder */
+    //Then, .config as a folder
     int res = mkdir(homepath, CONFIG_DIR_DEFAULT_MODE);
     int err = errno;
 
@@ -59,7 +94,7 @@ const char* get_config_path(char * buf, int buflen)
 
     snprintf(path, sizeof(path), "%s/%s", homepath, CONFIG_DIR_NAME);
 
-    /* Finally, CONFIG_DIR_NAME as a sub-folder */
+    //Finally, CONFIG_DIR_NAME as a sub-folder //
     res = mkdir(path, CONFIG_DIR_DEFAULT_MODE);
     err = errno;
 
@@ -68,7 +103,7 @@ const char* get_config_path(char * buf, int buflen)
 
     snprintf(buf, buflen, "%s/settings", path);
 
-    return buf;
+    return buf;*/
 }
 
 
