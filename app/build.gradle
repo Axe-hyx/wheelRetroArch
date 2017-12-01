@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
+    compileSdkVersion 23
     buildToolsVersion "27.0.1"
 
     defaultConfig {
         applicationId "org.libsdl.app"
-        minSdkVersion 10
+        minSdkVersion 14
         targetSdkVersion 23
     }
 
@@ -20,5 +20,8 @@ android {
         ndkBuild {
             path 'src/main/jni/Android.mk'
         }
+    }
+    dependencies {
+        compile 'com.android.support:appcompat-v7:23.1.1'
     }
 }

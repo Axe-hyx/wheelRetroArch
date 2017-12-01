@@ -5,13 +5,12 @@
 #include <vector>
 #include "gui.hpp"
 
-namespace GUI {
-
+namespace GUI { 
 
 class Entry
 {
     int x, y;
-
+    
     std::string label;
     std::function<void()> callback;
 

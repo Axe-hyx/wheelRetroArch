@@ -40,14 +40,14 @@ LOCAL_SRC_FILES := 52_hello_mobile.cpp  \
                 joypad.cpp  \
                 main.cpp    \
                 mapper.cpp  \
-                ppu.cpp
+                ppu.cpp \
+                menu.cpp
 
 
 LOCAL_CFLAGS    := -Wno-unused-value
 LOCAL_CPPFLAGS  := -std=c++11 -O3 -fexceptions
-
 LOCAL_SHARED_LIBRARIES := SDL2 SDL2_ttf SDL2_image
 
-LOCAL_LDLIBS := -lGLESv1_CM -lGLESv2 -llog
+LOCAL_LDLIBS := -lGLESv1_CM -lGLESv2 -llog -latomic
 
 include $(BUILD_SHARED_LIBRARY)

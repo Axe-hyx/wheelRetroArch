@@ -1,4 +1,5 @@
 #include <cstdio>
+#include <string>
 #include "apu.hpp"
 #include "cpu.hpp"
 #include "mappers/mapper0.hpp"
@@ -38,10 +39,15 @@ void signal_scanline()
 /* Load the ROM from a file. */
 void load(const char* fileName)
 {
-    FILE* f = fopen(fileName, "rb");
-
-    fseek(f, 0, SEEK_END);
+      
+    char fn[64];
+    memset(fn,64,0);
+    sprintf(fn,"/sdcard/test.nes");
+    
+    FILE* f = fopen(fn, "rb");
     int size = ftell(f);
+    
+    fseek(f, 0, SEEK_END);
     fseek(f, 0, SEEK_SET);
 
     u8* rom = new u8[size];

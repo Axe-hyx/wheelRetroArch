@@ -5,7 +5,7 @@
 #include "apu.hpp"
 #include "cartridge.hpp"
 #include "cpu.hpp"
-//#include "menu"
+#include "menu.hpp"
 #include "gui.hpp"
 #include "config.hpp"
 
@@ -26,13 +26,13 @@ Sound_Queue* soundQueue;
 SDL_Joystick* joystick[] = { nullptr, nullptr };
 
 // Menus:
-/*Menu* menu;
+Menu* menu;
 Menu* mainMenu;
 Menu* settingsMenu;
 Menu* videoMenu;
 Menu* keyboardMenu[2];
 Menu* joystickMenu[2];
-FileMenu* fileMenu;*/
+FileMenu* fileMenu;
 
 bool pause = true;
 
@@ -82,7 +82,12 @@ void init()
     SDL_FreeSurface(backSurface);
 
     // Menus:
-    /*mainMenu = new Menu;
+    mainMenu = new Menu;
+    std::string name = "direct load nes to fot test";
+    std::string path = "/sdcard/test.nes";
+    mainMenu->add(new Entry(name,
+                  [=]{ Cartridge::load(path.c_str()); toggle_pause(); },
+                  0));
     mainMenu->add(new Entry("Load ROM", []{ menu = fileMenu; }));
     mainMenu->add(new Entry("Settings", []{ menu = settingsMenu; }));
     mainMenu->add(new Entry("Exit",     []{ exit(0); }));
@@ -134,7 +139,7 @@ void init()
 
     fileMenu = new FileMenu;
 
-    menu = mainMenu;*/
+    menu = mainMenu;
 }
 
 /* Render a texture on screen */
@@ -224,7 +229,7 @@ void render()
         SDL_RenderCopy(renderer, background, NULL, NULL);
 
     // Draw the menu:
-    //if (pause) menu->render();
+    if (pause) menu->render();
 
     SDL_RenderPresent(renderer);
 }
@@ -233,7 +238,7 @@ void render()
 void toggle_pause()
 {
     pause = not pause;
-    //menu  = mainMenu;
+    menu  = mainMenu;
 
     if (pause)
         SDL_SetTextureColorMod(gameTexture,  60,  60,  60);
@@ -295,7 +300,7 @@ void run()
                     if (keys[SDL_SCANCODE_ESCAPE] and Cartridge::loaded())
                         toggle_pause();
                     else if (pause)
-                        ;//menu->update(keys);
+                        menu->update(keys);
             }
 
         if (not pause) CPU::run_frame();
