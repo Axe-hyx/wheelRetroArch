@@ -9,14 +9,16 @@
 ----native activity
 
 
-#####TDD   
+##### TDD   
     implement file operation
     fix the scancode
-    fix menu(maybe)
+    fix menu(maybe)  
+
 ----NES core   
 ----the simple in gSample  
 ----audio  
-----add keyboard support in SDLControllerManager	
+----add keyboard support in SDLControllerManager  
+> reference link http://libsdl-android.sourceforge.net/
 	
 ### 2. porting LaiNES
 ----others
