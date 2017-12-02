@@ -3,9 +3,10 @@
 	+----------------------+
 
 ### 1. set up an Android project with C++ support
-----link with SDL        
+:triangular_flag_on_post:  
+----link with SDL       
 ----fix issues with ndk-build  
-----native activity	  
+----native activity
 
 
 #####TDD   
@@ -14,8 +15,8 @@
     fix menu(maybe)
 ----NES core   
 ----the simple in gSample  
-----audio
-	
+----audio  
+----add keyboard support in SDLControllerManager	
 	
 ### 2. porting LaiNES
 ----others
@@ -24,6 +25,5 @@ test ndk debug
 
 
 ### 3. sacrifice
-----implemnt std::funtion in gcc4.9
-----delect the menu support in gui.cpp
-    no. 8. 29. 84. 227. 236. 298.
+----implemnt std::funtion in gcc4.9  
+>[fix] migrate from gcc to clang
